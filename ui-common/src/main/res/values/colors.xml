@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark">@color/cyan_500</color>
+
+    <color name="iconLetterBackground">@color/alto</color>
+
+    <color name="tagBackground">@color/lightGrey</color>
+    <color name="tagStroke">@color/lightGrey</color>
+
+    <color name="iconLetter">@color/warm_grey</color>
+
+    <color name="systemUiOverlayColor">#517E7E7E</color>
+
+    <color name="navigationBarColor">@color/systemUiOverlayColor</color>
+
+    <color name="textProtectionGradientStart">#b3000000</color>
+
+</resources>

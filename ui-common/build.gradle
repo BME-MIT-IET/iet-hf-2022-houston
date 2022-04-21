@@ -1,0 +1,91 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk buildConfig.compileSdk
+
+    defaultConfig {
+        minSdk buildConfig.minSdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+    }
+    compileOptions {
+        sourceCompatibility buildConfig.javaVersion
+        targetCompatibility buildConfig.javaVersion
+    }
+    kotlinOptions {
+        jvmTarget = buildConfig.jvmTarget
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion libs.versions.compose.get()
+    }
+    buildFeatures {
+        compose true
+    }
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/AL2.0', 'META-INF/LGPL2.1']
+        }
+    }
+}
+
+dependencies {
+    api project(":base")
+    api project(":entity")
+    implementation libs.accompanist.insets
+    implementation libs.accompanist.systemuicontroller
+
+    implementation libs.android.material
+
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.core
+
+    implementation libs.androidx.compose.foundation
+    implementation libs.androidx.compose.material.icons.core
+    implementation libs.androidx.compose.material.icons.extended
+    implementation libs.androidx.compose.material.material
+    implementation libs.androidx.compose.ui.tooling
+    implementation libs.androidx.compose.ui.ui
+    androidTestImplementation libs.androidx.compose.ui.test.junit4
+    debugImplementation libs.androidx.compose.ui.test.manifest
+
+    implementation libs.androidx.navigation.fragment
+    implementation libs.androidx.navigation.ui
+
+    implementation libs.androidx.preference
+
+    implementation platform(libs.google.firebase.bom)
+    implementation libs.google.firebase.analytics
+
+    androidTestImplementation libs.dagger.hilt.android
+    kaptAndroidTest libs.dagger.hilt.android
+    implementation libs.dagger.hilt.android
+    kapt libs.dagger.hilt.compiler
+
+    implementation libs.kotlin.coroutines.core
+    implementation libs.kotlin.coroutines.android
+    testImplementation libs.kotlin.coroutines.test
+
+    implementation libs.prettytime
+
+    implementation libs.timber
+
+    implementation libs.threetenabp.threetenabp
+
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.test.junit
+    androidTestImplementation libs.androidx.test.espresso.core
+}
