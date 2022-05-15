@@ -9,6 +9,11 @@ trigger:
 pool: BuildMachines
 
 steps:
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '8'
+    jdkArchitectureOption: 'x64'
+    jdkSourceOption: 'PreInstalled'
 - task: Gradle@2
   inputs:
     workingDirectory: ''
