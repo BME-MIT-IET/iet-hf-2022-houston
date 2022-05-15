@@ -19,6 +19,7 @@ internal class DatabaseModule {
     @Provides
     internal fun providesDatabase(@ApplicationContext context: Context): SpaceDatabase {
         return Room.databaseBuilder(context, SpaceRoomDatabase::class.java, "local-database")
+            .allowMainThreadQueries()
             .fallbackToDestructiveMigration()
             .build()
     }
