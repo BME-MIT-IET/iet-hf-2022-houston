@@ -34,13 +34,13 @@
 
 
 ## Alkalmazás tesztelése és használata közben tapasztalt problémák
-- [ ] #3
-- [ ] #4
-- [ ] #5
-- [ ] #6
-- [ ] #7
-- [ ] #8
-- [ ] #9
-- [ ] #10
-- [ ] #11
+- [ ] https://github.com/BME-MIT-IET/iet-hf-2022-houston/issues/3
+- [ ] https://github.com/BME-MIT-IET/iet-hf-2022-houston/issues/4
+- [ ] https://github.com/BME-MIT-IET/iet-hf-2022-houston/issues/5
+- [ ] https://github.com/BME-MIT-IET/iet-hf-2022-houston/issues/6
+- [ ] https://github.com/BME-MIT-IET/iet-hf-2022-houston/issues/7
+- [ ] https://github.com/BME-MIT-IET/iet-hf-2022-houston/issues/8
+- [ ] https://github.com/BME-MIT-IET/iet-hf-2022-houston/issues/9
+- [ ] https://github.com/BME-MIT-IET/iet-hf-2022-houston/issues/10
+- [ ] https://github.com/BME-MIT-IET/iet-hf-2022-houston/issues/11
 
