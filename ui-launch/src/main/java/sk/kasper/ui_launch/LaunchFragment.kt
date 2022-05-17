@@ -43,11 +43,10 @@ class LaunchFragment : BaseFragment() {
         lifecycleScope.launchWhenStarted {
             galleryViewModel.sideEffects.collect { sideEffect ->
                 if (sideEffect is ShowPhotoPager) {
-                    Toast.makeText(
-                        requireContext(),
-                        "Show photo pager ${sideEffect.photoPagerData.selectedPhotoIndex}",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    //Distracting for user, comment out after testing
+                    //Toast.makeText(requireContext(),
+                    //    "Show photo pager ${sideEffect.photoPagerData.selectedPhotoIndex}",
+                    //    Toast.LENGTH_SHORT).show()
                 }
             }
         }
