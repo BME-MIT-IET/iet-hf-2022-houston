@@ -84,4 +84,7 @@ dependencies {
     testImplementation libs.androidx.coretesting
     testImplementation libs.mockito.kotlin
     testImplementation libs.google.truth
+
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.1.1")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.1.1")
 }
