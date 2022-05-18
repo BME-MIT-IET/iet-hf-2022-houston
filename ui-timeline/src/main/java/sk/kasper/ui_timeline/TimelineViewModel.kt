@@ -1,5 +1,6 @@
 package sk.kasper.ui_timeline
 
+import android.util.Log
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.threeten.bp.LocalDateTime
 import org.threeten.bp.LocalTime
@@ -54,8 +55,15 @@ open class TimelineViewModel @Inject constructor(
     private val rocketMapper: RocketMapper
 ) : ReducerViewModel<TimelineState, SideEffect>(TimelineState()) {
 
+    //snapshot() did not get the state accurately
+    //long-term needed to fix snapshot(), this is a temporary fix
+    private var filterState: FilterSpec
+
     init {
+
         init()
+
+        filterState = FilterSpec.EMPTY_FILTER
     }
 
     private fun init() = action {
@@ -70,9 +78,8 @@ open class TimelineViewModel @Inject constructor(
         reduce {
             copy(progressVisible = true)
         }
-
         doSync()
-        reloadTimelineItems(snapshot().filterSpec)
+        reloadTimelineItems(filterState)
 
         reduce {
             copy(progressVisible = false)
@@ -127,7 +134,7 @@ open class TimelineViewModel @Inject constructor(
             progressVisible = true,
             clearButtonVisible = filterSpec.filterNotEmpty()
         )
-
+        filterState = newState.filterSpec
         reloadTimelineItems(newState.filterSpec)
     }
 
