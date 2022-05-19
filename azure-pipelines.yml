@@ -4,7 +4,11 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-- CI
+  batch: true
+  branches:
+    include:
+      - '*'
+    
 
 pool: BuildMachines
 
