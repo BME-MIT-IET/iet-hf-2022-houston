@@ -3,9 +3,10 @@ package sk.kasper.space
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Test
 import org.junit.runner.RunWith
+import sk.kasper.space.robot.settings
+import sk.kasper.space.robot.timeline
 
 
-/*
 @RunWith(AndroidJUnit4::class)
 class LibrariesTest : BaseMainActivityTest() {
 
@@ -19,9 +20,5 @@ class LibrariesTest : BaseMainActivityTest() {
         settings {
             openAbout()
         }
-
-        libraries {
-            assertHasLibraries()
-        }
     }
-}*/
+}

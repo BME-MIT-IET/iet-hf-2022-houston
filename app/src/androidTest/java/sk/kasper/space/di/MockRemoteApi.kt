@@ -1,9 +1,9 @@
 package sk.kasper.space.di
 
 import kotlinx.coroutines.CompletableDeferred
-import sk.kasper.space.api.RemoteApi
-import sk.kasper.space.api.entity.RemoteLaunch
-import sk.kasper.space.api.entity.RemoteLaunchesResponse
+import sk.kasper.remote.RemoteApi
+import sk.kasper.remote.entity.RemoteLaunch
+import sk.kasper.remote.entity.RemoteLaunchesResponse
 import javax.inject.Inject
 
 

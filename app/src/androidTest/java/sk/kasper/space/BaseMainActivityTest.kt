@@ -9,8 +9,8 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
-import sk.kasper.space.api.entity.RemoteLaunch
-import sk.kasper.space.api.entity.RemoteTag
+import sk.kasper.remote.entity.RemoteLaunch
+import sk.kasper.remote.entity.RemoteTag
 import sk.kasper.space.di.MockRemoteApi
 import sk.kasper.space.robot.droid.LaunchDroid
 import timber.log.Timber
@@ -19,16 +19,15 @@ import java.util.concurrent.TimeUnit
 
 open class BaseMainActivityTest {
 
-    private lateinit var mockRemoteApi: MockRemoteApi
     private lateinit var mainActivityIdlingResource: MainActivityIdlingResource
 
     @Rule @JvmField
     var activityScenario: ActivityScenarioRule<MainActivity> = ActivityScenarioRule(MainActivity::class.java)
 
+    private lateinit var mockRemoteApi: MockRemoteApi
+    
     @Before
     fun setUp() {
-        val spaceApp = getApplicationContext<SpaceApp>()
-        mockRemoteApi = spaceApp.remoteApi as MockRemoteApi
 
         activityScenario.scenario.onActivity { activity ->
             mainActivityIdlingResource = MainActivityIdlingResource(activity)

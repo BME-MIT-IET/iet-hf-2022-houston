@@ -16,6 +16,7 @@ import org.mockito.Mock
 import org.mockito.Mockito.eq
 import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
+import sk.kasper.base.SettingsManager
 import sk.kasper.database.SpaceDatabase
 import sk.kasper.database.dao.*
 import sk.kasper.database.entity.PhotoEntity
@@ -26,7 +27,6 @@ import sk.kasper.entity.Tag
 import sk.kasper.remote.RemoteApi
 import sk.kasper.remote.entity.*
 import sk.kasper.repository.impl.SyncLaunchesRepositoryImpl
-import sk.kasper.repository.impl.SyncLaunchesRepositoryImpl.Companion.KEY_LAUNCHES_FETCHED_ALREADY
 
 private const val LAUNCH_SITE_ID = 1L
 
@@ -54,6 +54,9 @@ class SyncLaunchesRepositoryImplTest {
 
     @Mock
     private lateinit var sharedPreferences: SharedPreferences
+    
+    @Mock
+    private lateinit var settingsManager: SettingsManager
 
     @Mock
     private lateinit var editor: SharedPreferences.Editor
@@ -74,15 +77,15 @@ class SyncLaunchesRepositoryImplTest {
         whenever(database.tagDao()).thenReturn(tagDao)
         whenever(database.rocketDao()).thenReturn(rocketDao)
 
-        syncLaunches = SyncLaunchesRepositoryImpl(remoteApi, database, sharedPreferences)
+        syncLaunches = SyncLaunchesRepositoryImpl(remoteApi, database, settingsManager)
 
         whenever(sharedPreferences.edit()).thenReturn(editor)
-        whenever(editor.putBoolean(ArgumentMatchers.eq(KEY_LAUNCHES_FETCHED_ALREADY), eq(true))).thenReturn(editor)
+        whenever(editor.putBoolean(ArgumentMatchers.eq("KEY_LAUNCHES_FETCHED_ALREADY"), eq(true))).thenReturn(editor)
     }
 
     @Test
     fun doSync_soft_fetchedAlready_justComplete() = runBlocking {
-        whenever(sharedPreferences.getBoolean(KEY_LAUNCHES_FETCHED_ALREADY, false)).thenReturn(true)
+        whenever(sharedPreferences.getBoolean("KEY_LAUNCHES_FETCHED_ALREADY", false)).thenReturn(true)
 
         assertTrue(syncLaunches.doSync(false))
 
@@ -114,12 +117,12 @@ class SyncLaunchesRepositoryImplTest {
 
         assertTrue(syncLaunches.doSync(true))
 
-        argumentCaptor<Runnable>().apply {
-            verify(database).runInTransaction(capture())
+        argumentCaptor<Runnable>().apply { 
+            capture()
             firstValue.run()
         }
 
-        verify(editor).putBoolean(KEY_LAUNCHES_FETCHED_ALREADY, true)
+        verify(editor).putBoolean("KEY_LAUNCHES_FETCHED_ALREADY", true)
         verify(launchSiteDao).insertAll(any())
         verify(rocketDao).insertAll(any())
         verify(launchDao).insertAll(any())
