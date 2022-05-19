@@ -99,6 +99,8 @@ dependencies {
     implementation project(':ui-launch')
     implementation project(':database-android')
     implementation project(':base-android')
+    implementation project(':repository')
+    implementation project(':remote')
 
     implementation libs.android.material
 
@@ -118,6 +120,8 @@ dependencies {
     implementation libs.androidx.preference
 
     implementation libs.kotlin.stdlib.jdk7
+    implementation 'androidx.room:room-common:2.4.2'
+    implementation 'androidx.room:room-ktx:2.4.2'
 
     androidTestImplementation libs.dagger.hilt.android
     kaptAndroidTest libs.dagger.hilt.android

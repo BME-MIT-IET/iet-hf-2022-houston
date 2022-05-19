@@ -12,7 +12,7 @@ import junit.framework.Assert.assertEquals
 import org.hamcrest.CoreMatchers.containsString
 import org.hamcrest.Matchers
 import sk.kasper.space.R
-/*
+
 
 fun settings(func: SettingsRobot.() -> Unit) = SettingsRobot().apply { func() }
 
@@ -24,17 +24,17 @@ class SettingsRobot {
     }
 
     init {
-        onView(Matchers.allOf(withText(R.string.settings)))
+        onView(Matchers.allOf(withText("Settings")))
                         .check(ViewAssertions.matches(isDisplayed()))
     }
 
     fun assertHasNotificationsSection() {
-        onView(withText(R.string.notifications))
+        onView(withText("Notifications"))
                 .check(ViewAssertions.matches(isDisplayed()))
     }
 
     fun selectTheme(theme: Theme) {
-        onView(withText(R.string.choose_theme))
+        onView(withText("Choose theme"))
                 .perform(ViewActions.click())
 
         val matcher = when (theme) {
@@ -56,8 +56,8 @@ class SettingsRobot {
 
     fun openAbout() {
         Espresso.openActionBarOverflowOrOptionsMenu(InstrumentationRegistry.getInstrumentation().targetContext)
-        onView(withText(R.string.libraries))
+        onView(withText("Libraries"))
                 .perform(ViewActions.click())
     }
 
-}*/
+}

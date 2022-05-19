@@ -14,7 +14,7 @@ import sk.kasper.remote.entity.RESPONSE_CODE_BAD_API_KEY
 import sk.kasper.repository.SyncLaunchesRepository
 import javax.inject.Inject
 
-internal class SyncLaunchesRepositoryImpl @Inject constructor(
+class SyncLaunchesRepositoryImpl @Inject constructor(
     private val service: RemoteApi,
     private val database: SpaceDatabase,
     private val settingsManager: SettingsManager

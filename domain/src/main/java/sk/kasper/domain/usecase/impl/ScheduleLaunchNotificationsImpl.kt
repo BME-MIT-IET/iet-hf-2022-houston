@@ -7,7 +7,7 @@ import sk.kasper.domain.usecase.ScheduleLaunchNotifications
 import sk.kasper.entity.Launch
 import javax.inject.Inject
 
-internal class ScheduleLaunchNotificationsImpl @Inject constructor(
+class ScheduleLaunchNotificationsImpl @Inject constructor(
     private val enqueueLaunchNotification: EnqueueLaunchNotification
 ) : ScheduleLaunchNotifications {
 
