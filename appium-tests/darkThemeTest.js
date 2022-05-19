@@ -47,7 +47,6 @@ async function main () {
 
   assert.strictEqual(theme, "Dark");
 
-  await delay(5000);
   await client.deleteSession();
 }
 
