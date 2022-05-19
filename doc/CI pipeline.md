@@ -1,1 +1,0 @@
-# Készítette: Balassa Tamás

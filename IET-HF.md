@@ -1,7 +1,7 @@
-A space-app célja bemutatni egy "működő" projekten bemutatni egy android app struktúráját.
-Az app jelenleg átdolgozás alatt áll, így szerintünk ezt nem teljesíti, elsődleges célunk az, hogy ezt megváltoztasssuk.
+A space-app vagy Rocketly célja egy rakéta kilövéseket listázó alkalmazáson keresztül bemutatni egy "működő" android app struktúráját. Az alkalmazás képes filterezni a kilövéseket, illetve azokról plusz adatokat, képeket megjeleníteni, valamint a kilövés közvetítése is gyorsan elérhető.
+Az app jelenleg átdolgozás alatt áll, a készítő compose-re kezdte el átírni. Emiatt sok része jelenleg hibás, így szerintünk nem teljesíti az eredeti célját. Elsődleges célunk az, hogy ezt megváltoztasssuk a munkánk során.
 
-A következő feladatokat választottuk:
+Ennek elérése a következő feladatokat választottuk:
 
 ## Technológiai
 
