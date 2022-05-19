@@ -37,8 +37,7 @@ async function main () {
     const result = rocketName + " • " + launchName;
 
     assert.strictEqual(result, firstListItemTitleText);
-
-    await delay(2000);
+    
     await client.deleteSession();
   }
   
